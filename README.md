@@ -1,3 +1,3 @@
 # PROJECTS
 
-Adding new projects using nestjs and will add testcases as well
+`URL-SHORTENER`: Created a small project url-shortener for in nestjs
