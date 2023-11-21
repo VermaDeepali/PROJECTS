@@ -3,6 +3,10 @@ import {ShortUrl} from '../ models/app.models'
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 
+export interface IGetFullUrl {
+  fullUrl: string
+}
+
 @Injectable()
 export class AppService {
 
@@ -12,13 +16,11 @@ export class AppService {
     return 'Hello World!';
   }
 
-  // async getFullUrl(): Promise<string> {
-  //   // const shortUrl = await ShortUrl.findOne({short: req.params.shortUrl})
-  //   // if(shortUrl === null ) {return new NotFoundException(404)}
-  //   // shortUrl.save()
-  //   // return shortUrl.full;
-  //   return ""
-  // }
+  async getFullUrl(data): Promise<IGetFullUrl | null> {  
+    const shortUrl = await this.shortUrlModel.findOne({short: data.shortUrl})
+    if(shortUrl === null ) { throw new NotFoundException()}
+    return { fullUrl: shortUrl.full};
+  }
 
   async createShortUrl(data): Promise<Record<string, any>> {
     const newShortUrl = new this.shortUrlModel({full: data.fullUrl})
