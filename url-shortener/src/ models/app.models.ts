@@ -1,5 +1,5 @@
-import * as mongoose from 'mongoose';
-import * as shortId from 'shortid';
+import * as mongoose from "mongoose";
+import * as shortId from "shortid";
 
 export const ShortUrlSchema = new mongoose.Schema({
   full: {

@@ -1,7 +1,7 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
-import { ShortUrl } from '../ models/app.models';
-import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
+import { Injectable, NotFoundException } from "@nestjs/common";
+import { ShortUrl } from "../ models/app.models";
+import { InjectModel } from "@nestjs/mongoose";
+import { Model } from "mongoose";
 
 export interface IGetFullUrl {
   fullUrl: string;
@@ -14,17 +14,17 @@ export interface IGetShortUrl {
 @Injectable()
 export class AppService {
   constructor(
-    @InjectModel('ShortUrl') private readonly shortUrlModel: Model<ShortUrl>,
+    @InjectModel("ShortUrl") private readonly shortUrlModel: Model<ShortUrl>,
   ) {}
 
   getHello(): string {
-    return 'Hello World!';
+    return "Hello World!";
   }
 
   async getFullUrl(data): Promise<IGetFullUrl | null> {
-    console.log('data', data);
+    console.log("data", data);
     const shortUrl = await this.shortUrlModel.findOne({ short: data.shortUrl });
-    console.log('shortUrl', shortUrl);
+    console.log("shortUrl", shortUrl);
     if (shortUrl === null) {
       throw new NotFoundException();
     }

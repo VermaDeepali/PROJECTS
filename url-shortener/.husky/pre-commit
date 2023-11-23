@@ -1,6 +1,10 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-cd ./url-shortener && npm run format:check
-# npm run format:check
-# npm run lint:check
+cd ./url-shortener 
+npm run format:check 
+npm run lint:check
+
+# hint: The 'url-shortener/.husky/pre-commit' hook was ignored because it's not set as executable.
+# if got above error run below command
+# chmod ug+x .husky/*

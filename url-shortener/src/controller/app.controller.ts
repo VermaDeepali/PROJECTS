@@ -1,5 +1,5 @@
-import { Body, Controller, Get, Post, Req, Res } from '@nestjs/common';
-import { AppService, IGetFullUrl, IGetShortUrl } from '../service/app.service';
+import { Body, Controller, Get, Post, Req, Res } from "@nestjs/common";
+import { AppService, IGetFullUrl, IGetShortUrl } from "../service/app.service";
 
 @Controller()
 export class AppController {
@@ -10,19 +10,19 @@ export class AppController {
     return this.appService.getHello();
   }
 
-  @Post('/shortUrls')
+  @Post("/shortUrls")
   async createShortUrl(
     @Body() body: { fullUrl: string },
     @Res() res,
   ): Promise<IGetShortUrl | null> {
-    console.log(body, 'body');
+    console.log(body, "body");
     const result = await this.appService.createShortUrl(body);
     if (result) {
       return res.send(result);
     }
   }
 
-  @Get('/:shortUrl')
+  @Get("/:shortUrl")
   getFullUrl(@Req() req): Promise<IGetFullUrl | null> {
     return this.appService.getFullUrl(req.params);
   }
