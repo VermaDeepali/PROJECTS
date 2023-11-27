@@ -5,7 +5,8 @@ import { Model } from "mongoose";
 
 describe("AppService", () => {
   let appService: AppService;
-  let modelMock: Model<unknown>;
+  //   @typescript-eslint/no-unused-vars
+  //   let modelMock: Model<unknown>;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -31,18 +32,17 @@ describe("AppService", () => {
     });
   });
 
-//   describe("getFullUrl", () => {
-//     it('should throw NotFoundException for non-existing shortUrl', async () => {
-//       // Mock the findOne method to return null, simulating a non-existing shortUrl
-//       modelMock.findOne.mockReturnValue({_id:6, full: "ghjh", short: "hjj"});
+  //   describe("getFullUrl", () => {
+  //     it('should throw NotFoundException for non-existing shortUrl', async () => {
+  //       // Mock the findOne method to return null, simulating a non-existing shortUrl
+  //       modelMock.findOne.mockReturnValue({_id:6, full: "ghjh", short: "hjj"});
 
-//       // Assuming you have a valid 'data' object for testing
-//       const data = { shortUrl: "nonExistingShortUrl" };
+  //       // Assuming you have a valid 'data' object for testing
+  //       const data = { shortUrl: "nonExistingShortUrl" };
 
-//       await expect(appService.getFullUrl(data)).rejects.toThrowError(NotFoundException);
-//     });
-//   });
+  //       await expect(appService.getFullUrl(data)).rejects.toThrowError(NotFoundException);
+  //     });
+  //   });
 
   // Add more test cases for other methods as needed
-
 });
