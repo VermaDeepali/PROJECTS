@@ -1,7 +1,6 @@
 import { AppService } from "../../src/service/app.service";
 import { getModelToken } from "@nestjs/mongoose";
 import { Test, TestingModule } from "@nestjs/testing";
-import { Model } from "mongoose";
 
 describe("AppService", () => {
   let appService: AppService;
@@ -23,7 +22,6 @@ describe("AppService", () => {
     }).compile();
 
     appService = module.get<AppService>(AppService);
-    modelMock = module.get<Model<unknown>>(getModelToken("ShortUrl"));
   });
 
   describe("getHello", () => {
