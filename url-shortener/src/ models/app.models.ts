@@ -1,21 +1,24 @@
 import * as mongoose from "mongoose";
-import * as shortId from "shortid";
 
 export const ShortUrlSchema = new mongoose.Schema({
-  full: {
+  key: {
     type: String,
     required: true,
   },
-  short: {
+  full_url: {
     type: String,
     required: true,
-    default: shortId.generate,
+  },
+  short_url: {
+    type: String,
+    required: true,
   },
 });
 
 export interface ShortUrl {
   id: string;
-  full: string;
-  short: string;
+  key: string;
+  full_url: string;
+  short_url: string;
 }
 // module.exports = mongoose.model("ShortUrl", ShortUrlSchema)

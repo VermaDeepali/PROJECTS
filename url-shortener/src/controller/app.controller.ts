@@ -15,7 +15,7 @@ export class AppController {
     @Body() body: { fullUrl: string },
     @Res() res,
   ): Promise<IGetShortUrl | null> {
-    console.log(body, "body");
+    console.log(body, "body", res, "res");
     const result = await this.appService.createShortUrl(body);
     if (result) {
       return res.send(result);
