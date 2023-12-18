@@ -1,3 +1,3 @@
 # PROJECTS
 
-`URL-SHORTENER`: Created a small project url-shortener for in nestjs
+`URL-SHORTENER`: Created a small project url-shortener in nestjs
